@@ -1,0 +1,35 @@
+html,
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app{
+  width: 100%;
+  height: 100%;
+}
+
+
+:root {
+  --anjia-w-full: 100%;
+  --anjia-h-full: 100%;
+  --anjia-background-color: #060716;
+  --anjia-global-color:#ffffff;
+  --anjia-content-background-color:#161823
+}
+
+.anjia-height-fill{
+  height: var(--anjia-h-full);
+}
+
+.anjia-width-fill{
+  width: var(--anjia-w-full);
+}
+
+.anjia-container {
+  height: var(--anjia-h-fill);
+  background-color: var(--anjia-global-color);
+}
+

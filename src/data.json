@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name":"日常",
+        "type":"daily",
+        "icon":"../src/assets/daily.png"
+    },
+    {
+        "id":2,
+        "name":"旅行",
+        "type":"travel",
+        "icon":"../src/assets/travel.png"
+    },
+    {
+        "id":4,
+        "name":"运动",
+        "type":"sport",
+        "icon":"../src/assets/sport.png"
+    }
+]

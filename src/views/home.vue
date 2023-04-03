@@ -7,10 +7,7 @@
           <div class="anjia-menu-item" v-for="menu in menus" v-bind:key="menu.Id">
             <router-link class="anjia-menu-item-link" :to="menu.type">
               <div class="anjia-menu-icon">
-                  <el-image
-                  style="width: 30px; height: 30px"
-                  :src="menu.icon"
-                  :fit="fit"></el-image>
+                  <img :src="menu.icon" />
               </div>
               <div class="anjia-menu-text">{{ menu.name }}</div> 
             </router-link>
@@ -58,20 +55,20 @@ export default {
   text-decoration: none;
   height: 35px;
   line-height: 35px;
-  color:rgba(255, 255, 255, .6);
+  color:rgba(255, 255, 255, .5);
   font-family: 'PingFang SC,DFPKingGothicGB-Medium,sans-serif';
   font-weight: 400;
 }
-.anjia-menu-item-link:hover{
-  color: #fff;
-  opacity: 1;
-}
+
 
 .anjia-menu-active{
   font-size: 16px;
   color: #fff;
-  opacity: 1;
 }
+.anjia-menu-active .anjia-menu-icon > img{
+  filter: opacity(1);
+}
+
 .anjia-menu-wrap{
   display: flex;
   flex-direction: column;
@@ -81,10 +78,22 @@ export default {
 .anjia-menu-item{
   margin: 12px 20px 0 20px;
 }
+.anjia-menu-item-link:hover .anjia-menu-icon > img,
+.anjia-menu-item-link:hover .anjia-menu-text{
+  color: #fff;
+  filter: opacity(1);
+}
+
 .anjia-menu-icon{
-    padding: 0 12px;
+    padding:0 12px 0 0;
     display: flex;
     align-items: center;
+   
+}
+.anjia-menu-icon img {
+  width: 24px; 
+  height: auto;
+  filter: opacity(50%);
 }
 
 @media screen and (max-width: 1280px) {
@@ -102,8 +111,11 @@ export default {
     margin: 8px 18px 0;
   }
   .anjia-menu-text{
-    line-height: 35px;
+    line-height: 25px;
     text-align: center;
+  }
+  .anjia-menu-icon{
+    padding:0;
   }
 }
 </style>>

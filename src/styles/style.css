@@ -16,9 +16,9 @@ body{
 :root {
   --anjia-w-full: 100%;
   --anjia-h-full: 100%;
-  --anjia-background-color: #060716;
+  --anjia-background-color: #24292f;
   --anjia-global-color:#ffffff;
-  --anjia-content-background-color:#161823
+  --anjia-content-background-color:#2e3742
 }
 
 .anjia-height-fill{

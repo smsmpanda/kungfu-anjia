@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import login from '../views/login.vue';
+import login from '../views/layout/login.vue';
 
 const routes = [
   { path: '/', component: login },
   {
     path: '/home',
-    component: () => import('../views/home.vue'),
+    component: () => import('../views/layout/home.vue'),
     redirect: '/home/daily',
     children: [
       { path: 'daily', component: () => import('../views/daily/index.vue') },

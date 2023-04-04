@@ -15,7 +15,9 @@
         </div>
       </el-aside>
       <el-container class="anjia-main-right">
-        <el-header>Header</el-header>
+        <el-header>
+            
+          </el-header>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-import menus from '../data.json';
+import menus from '~/data.json';
 
 export default {
   data() {

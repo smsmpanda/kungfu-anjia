@@ -1,13 +1,5 @@
 <template>
-   <router-view></router-view>
+   <el-config-provider namespace="ep">
+      <router-view></router-view>
+   </el-config-provider>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      msg: '你好啊！',
-    };
-  },
-};
-</script>

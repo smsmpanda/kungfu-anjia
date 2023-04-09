@@ -1,23 +1,33 @@
 <template>
-  <div class="common-layout anjia-height-fill">
-    <el-container class="anjia-height-fill">
-      <el-header class="login-header">Y&m</el-header>
+  <div style="background-color: var(--ym-background-color);" class="common-layout ym-height-filll">
+    <el-container class="ym-height-filll">
+      <el-header class="login-header">
+        <logo style="width:80px;top:10px" />
+      </el-header>
       <el-main>
         <el-card class="login-box-wrap">
+          <el-image style="width:auto;height: 100%;" :src="data.loginImg"></el-image>
           <div class="login-item">
-            <el-input v-model="data.account" class="w-50 m-2" size="large" placeholder="账号名/邮箱/手机" :prefix-icon="User" />
+            <el-input v-model="data.account" class="login-input w-50 m-2" size="large" placeholder="账号名/邮箱/手机"
+              :prefix-icon="User" />
           </div>
           <div class="login-item">
-            <el-input v-model="data.password" type="password" class="w-50 m-2" size="large" placeholder="请输入登录密码"
-              :prefix-icon="Key" />
+            <el-input v-model="data.password" type="password" class="login-input w-50 m-2" size="large"
+              placeholder="请输入登录密码" :prefix-icon="Key" />
           </div>
           <div class="login-item">
-            <el-button class="login-btn" type="primary" :loading-icon="Eleme" :loading="data.loginBtnIsShowLoading"
-              @click="login">{{
+            <el-button class="login-input login-btn" type="primary" round :loading-icon="Eleme"
+              :loading="data.loginBtnIsShowLoading" @click="login">{{
                 data.loginBtnContent }}</el-button>
+          </div>
+          <div class="login-item">
+            <router-link to="/resetpwd">找回密码</router-link> | <router-link to="/register">快速注册</router-link>
           </div>
         </el-card>
       </el-main>
+      <el-footer>
+        <div class="login-footer"></div>
+      </el-footer>
     </el-container>
   </div>
 </template>
@@ -27,9 +37,14 @@
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
 import { Calendar, Search, User, Loading, Key, Eleme } from '@element-plus/icons-vue'
+import loginImg from '~/assets/login.png'
+import logo from '~/components/logo.vue'
 
 export default {
   name: 'login',
+  components: {
+    logo
+  },
   setup() {
     const router = useRouter()
     let data = reactive({
@@ -37,6 +52,7 @@ export default {
       password: 'password',
       loginBtnContent: '登录',
       loginBtnIsShowLoading: false,
+      loginImg: loginImg
     })
 
     function login() {
@@ -46,7 +62,12 @@ export default {
     }
 
     return {
-      Calendar, Search, User, Loading, Key, Eleme,
+      Calendar,
+      Search,
+      User,
+      Loading,
+      Key,
+      Eleme,
       data,
       login
     }
@@ -54,38 +75,46 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .login-header {
-  background-color: #0635ff;
-  color: #fff;
-  line-height: 60px;
+  position: relative;
 }
 
 .login-main {
-  height: 100%;
-  background: url(~/assets/login-bg.png) no-repeat;
+  background: url(~/assets/login.png) no-repeat;
   background-position: center center;
-  background-size: contain;
 }
 
 .login-box-wrap {
   position: absolute;
   top: 50%;
-  right: 0;
-  width: 350px;
-  transform: translate(-100px, -50%);
+  left: 50%;
+  width: 480px;
+  transform: translate(-50%, -50%);
 }
 
-.anjia-login-footer {
+.ym-login-footer {
   text-align: center;
 }
 
 .login-item {
   margin: 20px 10px;
+  text-align: center;
 }
 
 .login-btn {
   width: 100%;
   height: 40px
+}
+
+.login-input {
+  width: 85%;
+}
+
+.login-footer {
+  line-height: 60px;
+  color: var(--ym-color);
+  text-align: center;
+  font-size: 12px;
 }
 </style>

@@ -1,20 +1,22 @@
 <template>
-  <div class="common-layout  anjia-height-fill">
-    <el-container class="anjia-height-fill">
-      <el-aside class="anjia-main-left">
-        <div class="anjia-main-logo"></div>
-        <div class="anjia-menu-wrap">
-          <div class="anjia-menu-item" v-for="menu in menus" v-bind:key="menu.Id">
-            <router-link class="anjia-menu-item-link" :to="menu.type">
-              <div class="anjia-menu-icon">
+  <div class="common-layout  ym-height-filll">
+    <el-container class="ym-height-filll">
+      <el-aside class="home-main-left">
+        <div class="ym-main-logo">
+          <logo class="ym-logo" />
+        </div>
+        <div class="home-menu-wrap">
+          <div class="home-menu-item" v-for="menu in menus" v-bind:key="menu.Id">
+            <router-link class="home-menu-item-link" :to="menu.type">
+              <div class="home-menu-icon">
                   <img :src="menu.icon" />
               </div>
-              <div class="anjia-menu-text">{{ menu.name }}</div> 
+              <div class="home-menu-text">{{ menu.name }}</div> 
             </router-link>
         </div>
         </div>
       </el-aside>
-      <el-container class="anjia-main-right">
+      <el-container class="ym-main-right">
         <el-header>
             
           </el-header>
@@ -28,8 +30,13 @@
 
 <script>
 import menus from '~/data.json';
+import logo from '~/components/logo.vue'
 
 export default {
+  name:'home',
+  components:{
+    logo
+  },
   data() {
     return {
       menus,
@@ -39,20 +46,27 @@ export default {
 </script>
 
 <style scoped>
-.anjia-main-left{
+.home-main-left{
   width: 170px;
-  background-color: var(--anjia-background-color);
-  color: var(--anjia-global-color);
+  background-color: var(--ym-background-color);
+  color: var(--ym-global-color);
 }
-.anjia-main-right{
-  color: var(--anjia-global-color);
-  background-color: var(--anjia-content-background-color);
+.ym-main-right{
+  color: var(--ym-global-color);
+  /* background-color: var(--ym-content-background-color); */
 }
-.anjia-main-logo{
+.ym-main-logo{
+  position:relative;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ym-logo{
+  width: 65%;
 }
 
-.anjia-menu-item-link{
+.home-menu-item-link{
   display: flex;
   text-decoration: none;
   height: 35px;
@@ -63,60 +77,60 @@ export default {
 }
 
 
-.anjia-menu-active{
+.ym-menu-active{
   font-size: 16px;
   color: #fff;
 }
-.anjia-menu-active .anjia-menu-icon > img{
+.ym-menu-active .home-menu-icon > img{
   filter: opacity(1);
 }
 
-.anjia-menu-wrap{
+.home-menu-wrap{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.anjia-menu-item{
+.home-menu-item{
   margin: 12px 20px 0 20px;
 }
-.anjia-menu-item-link:hover .anjia-menu-icon > img,
-.anjia-menu-item-link:hover .anjia-menu-text{
+.home-menu-item-link:hover .home-menu-icon > img,
+.home-menu-item-link:hover .home-menu-text{
   color: #fff;
   filter: opacity(1);
 }
 
-.anjia-menu-icon{
+.home-menu-icon{
     padding:0 12px 0 0;
     display: flex;
     align-items: center;
    
 }
-.anjia-menu-icon img {
+.home-menu-icon img {
   width: 24px; 
   height: auto;
   filter: opacity(50%);
 }
 
 @media screen and (max-width: 1280px) {
-  .anjia-main-left {
+  .home-main-left {
     width: 75px;
   }
-  .anjia-menu-item-link{
+  .home-menu-item-link{
     display: flex;
     flex-direction: column;
     font-size: 12px;
     height: auto;
     line-height: 1;
   }
-  .anjia-menu-item{
+  .home-menu-item{
     margin: 8px 18px 0;
   }
-  .anjia-menu-text{
+  .home-menu-text{
     line-height: 25px;
     text-align: center;
   }
-  .anjia-menu-icon{
+  .home-menu-icon{
     padding:0;
   }
 }

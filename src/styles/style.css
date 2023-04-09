@@ -14,23 +14,24 @@ body{
 
 
 :root {
-  --anjia-w-full: 100%;
-  --anjia-h-full: 100%;
-  --anjia-background-color: #24292f;
-  --anjia-global-color:#ffffff;
-  --anjia-content-background-color:#2e3742
+  --ym-w-full: 100%;
+  --ym-h-full: 100%;
+  --ym-background-color: #3065a5;
+  --ym-global-color:#ffffff;
+  --ym-color:#fff;
+  --ym-content-background-color:#2e3742;
 }
 
-.anjia-height-fill{
-  height: var(--anjia-h-full);
+.ym-height-filll{
+  height: var(--ym-h-full);
 }
 
-.anjia-width-fill{
-  width: var(--anjia-w-full);
+.ym-width-fill{
+  width: var(--ym-w-full);
 }
 
-.anjia-container {
-  height: var(--anjia-h-fill);
-  background-color: var(--anjia-global-color);
+.ym-container {
+  height: var(--ym-h-fill);
+  background-color: var(--ym-global-color);
 }
 

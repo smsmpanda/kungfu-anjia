@@ -21,7 +21,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  linkActiveClass: 'anjia-menu-active'
+  linkActiveClass: 'ym-menu-active'
 });
 
 export default router;

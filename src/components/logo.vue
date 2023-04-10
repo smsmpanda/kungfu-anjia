@@ -32,6 +32,5 @@ import { reactive } from 'vue'
     font-stretch: semi-condensed;
     font-family: math;
     font-size: 20px;
-    font-style: italic;
 }
 </style>

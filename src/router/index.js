@@ -12,7 +12,9 @@ const routes = [
       { path: 'travel', component: () => import('../views/travel/index.vue') },
       { path: 'sport', component: () => import('../views/sport/index.vue') }
     ]
-  }
+  },
+  { path: '/resetpwd', component: () => import('../views/layout/resetpwd.vue') },
+  { path: '/register', component: () => import('../views/layout/register.vue') },
   // { path: '/city/:cityType', component: () => import('../views/city.vue') },
   // { path: '/city', redirect: '/city/beijing' },
   // { path: '/:pathMatch(.*)*', component: () => import('../views/notfound.vue') },

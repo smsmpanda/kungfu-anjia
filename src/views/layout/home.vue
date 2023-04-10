@@ -58,12 +58,9 @@ export default {
 .ym-main-logo{
   position:relative;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .ym-logo{
-  width: 65%;
+  width: 100%;
 }
 
 .home-menu-item-link{

@@ -16,5 +16,11 @@
         "name":"运动",
         "type":"sport",
         "icon":"../src/assets/sport.png"
+    },
+    {
+        "id":5,
+        "name":"商店",
+        "type":"market",
+        "icon":"../src/assets/market.png"
     }
 ]

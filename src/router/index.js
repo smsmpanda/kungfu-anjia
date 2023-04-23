@@ -10,7 +10,8 @@ const routes = [
     children: [
       { path: 'daily', component: () => import('../views/daily/index.vue') },
       { path: 'travel', component: () => import('../views/travel/index.vue') },
-      { path: 'sport', component: () => import('../views/sport/index.vue') }
+      { path: 'sport', component: () => import('../views/sport/index.vue') },
+      { path: 'market', component: () => import('../views/market/index.vue') }
     ]
   },
   { path: '/resetpwd', component: () => import('../views/layout/resetpwd.vue') },

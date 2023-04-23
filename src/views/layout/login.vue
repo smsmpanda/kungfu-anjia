@@ -2,7 +2,7 @@
   <div style="background-color: var(--ym-background-color);" class="common-layout ym-height-filll">
     <el-container class="ym-height-filll">
       <el-header class="login-header">
-        <logo style="width:80px;top:10px" />
+        <logo style="width:80px;top:10px" logoWidth="50" logoHeight="50" />
       </el-header>
       <el-main>
         <el-card class="login-box-wrap">

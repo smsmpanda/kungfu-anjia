@@ -3,7 +3,7 @@
     <el-container class="ym-height-filll">
       <el-aside class="home-main-left">
         <div class="ym-main-logo">
-          <logo class="ym-logo" />
+          <logo class="ym-logo" logoWidth="50" logoHeight="50" />
         </div>
         <div class="home-menu-wrap">
           <div class="home-menu-item" v-for="menu in menus" v-bind:key="menu.Id">
@@ -18,7 +18,7 @@
       </el-aside>
       <el-container class="ym-main-right">
         <el-header>
-            
+            <h1>123123</h1>
           </el-header>
         <el-main>
           <router-view></router-view>
@@ -47,12 +47,12 @@ export default {
 
 <style scoped>
 .home-main-left{
-  width: 170px;
+  width: 140px;
   background-color: var(--ym-background-color);
   color: var(--ym-global-color);
 }
 .ym-main-right{
-  color: var(--ym-global-color);
+  /* color: var(--ym-global-color); */
   /* background-color: var(--ym-content-background-color); */
 }
 .ym-main-logo{
@@ -60,7 +60,10 @@ export default {
   height: 50px;
 }
 .ym-logo{
-  width: 100%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:90%
 }
 
 .home-menu-item-link{

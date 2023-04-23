@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: var(--ym-background-color);" class="common-layout ym-height-filll">
+  <div style="background-color: var(--ym-primary);" class="common-layout ym-height-filll">
     <el-container class="ym-height-filll">
       <el-header class="login-header">
         <logo style="width:80px;top:10px" logoWidth="50" logoHeight="50" />

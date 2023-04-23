@@ -11,6 +11,7 @@ body{
   padding: 0;
   font-family:"microsoft yahei"!important;
   min-width: 1200px;
+  color: var(--ym-color);
 }
 
 #app{
@@ -22,9 +23,10 @@ body{
 :root {
   --ym-w-full: 100%;
   --ym-h-full: 100%;
-  --ym-background-color: #3065a5;
+  --ym-primary: #060716;
+  --ym-primary-sub:#161823;
   --ym-global-color:#ffffff;
-  --ym-color:#fff;
+  --ym-color:#ffffff;
   --ym-content-background-color:#2e3742;
 }
 

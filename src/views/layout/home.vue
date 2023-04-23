@@ -30,7 +30,7 @@
             </el-col>
           </el-row>
         </el-header>
-        <el-main>
+        <el-main class="ym-content">
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -66,13 +66,13 @@ export default {
 
 <style scoped>
 .home-main-left {
-  width: 170px;
-  background-color: var(--ym-background-color);
+  width: 140px;
+  background-color: var(--ym-primary);
   color: var(--ym-global-color);
 }
 
 .ym-main-right {
-  color: var(--ym-global-color);
+  /* color: var(--ym-global-color); */
   /* background-color: var(--ym-content-background-color); */
 }
 
@@ -84,10 +84,13 @@ export default {
 .ym-logo {
   width: 100%;
 }
-
+.ym-content{
+  background-color: var(--ym-primary-sub);
+}
 .ym-header-col {
   display: flex;
   justify-content: end;
+  list-style: none;
 }
 
 .ym-header-col li:not(:last-child) {
@@ -100,7 +103,8 @@ export default {
 .ym-header {
   display: flex;
   align-items: center;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
+  border-bottom: 1px solid #2c2a2a;
+  background-color: var(--ym-primary-sub);
 }
 
 .ym-header-content {

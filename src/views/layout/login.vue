@@ -1,8 +1,8 @@
 <template>
-  <div style="background-color: var(--ym-primary);" class="common-layout ym-height-filll">
-    <el-container class="ym-height-filll">
+  <div style="background-color: var(--ym-primary);" class="common-layout ym-height-fill">
+    <el-container class="ym-height-fill">
       <el-header class="login-header">
-        <logo style="width:80px;top:10px" logoWidth="50" logoHeight="50" />
+        <logo style="width:80px;top:10px" :logoWidth="50" :logoHeight="50" />
       </el-header>
       <el-main>
         <el-card class="login-box-wrap">

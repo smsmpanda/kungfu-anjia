@@ -30,7 +30,7 @@ body{
   --ym-content-background-color:#2e3742;
 }
 
-.ym-height-filll{
+.ym-height-fill{
   height: var(--ym-h-full);
 }
 

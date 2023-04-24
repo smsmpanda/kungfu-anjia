@@ -1,9 +1,9 @@
 <template>
-  <div class="common-layout  ym-height-filll">
-    <el-container class="ym-height-filll">
+  <div class="common-layout ym-height-fill">
+    <el-container class="ym-height-fill">
       <el-aside class="home-main-left">
         <div class="ym-main-logo">
-          <logo class="ym-logo" logoWidth="50" logoHeight="50" />
+          <logo class="ym-logo" :logoWidth="50" :logoHeight="50" />
         </div>
         <div class="home-menu-wrap">
           <div class="home-menu-item" v-for="menu in data.menus" v-bind:key="menu.Id">
@@ -24,8 +24,12 @@
             </el-col>
             <el-col :span="8">
               <ul class="ym-header-col">
-                <li><el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" /></li>
-                <li><el-button type="primary" size="large" style="width:100px">登录</el-button></li>
+                <li>
+                  <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+                </li>
+                <li>
+                  <el-button type="primary" size="large" style="width: 100px">登录</el-button>
+                </li>
               </ul>
             </el-col>
           </el-row>
@@ -39,28 +43,29 @@
 </template>
 
 <script>
-import menus from '~/data.json';
+import menus from '~/data.json'
 import logo from '~/components/logo.vue'
 import { Search, UserFilled } from '@element-plus/icons-vue'
-import { reactive } from 'vue';
+import { reactive } from 'vue'
 
 export default {
   name: 'home',
   components: {
-    logo
+    logo,
   },
   setup() {
     let data = reactive({
       menus,
       searcContent: '',
-      squareUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+      squareUrl:
+        'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
     })
     return {
       Search,
       UserFilled,
-      data
-    };
-  }
+      data,
+    }
+  },
 }
 </script>
 
@@ -84,9 +89,11 @@ export default {
 .ym-logo {
   width: 100%;
 }
-.ym-content{
+
+.ym-content {
   background-color: var(--ym-primary-sub);
 }
+
 .ym-header-col {
   display: flex;
   justify-content: end;
@@ -116,11 +123,10 @@ export default {
   text-decoration: none;
   height: 35px;
   line-height: 35px;
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, 0.5);
   font-family: 'PingFang SC,DFPKingGothicGB-Medium,sans-serif';
   font-weight: 400;
 }
-
 
 .ym-menu-active {
   font-size: 16px;
@@ -152,7 +158,6 @@ export default {
   padding: 0 12px 0 0;
   display: flex;
   align-items: center;
-
 }
 
 .home-menu-icon img {

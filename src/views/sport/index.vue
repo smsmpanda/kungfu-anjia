@@ -1,7 +1,5 @@
 <template>
     <el-button type="danger">fsdf</el-button> <br />
-
-
     <el-switch v-model="data.toggle" @change="toggleTheme" />
 </template>
 <script>
@@ -15,7 +13,6 @@ export default {
             toggle: true,
         })
         function toggleTheme(data) {
-            console.log(data)
             toggleDark()
         }
         return {

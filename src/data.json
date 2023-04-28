@@ -1,26 +1,26 @@
 [
     {
-        "id":1,
-        "name":"日常",
-        "type":"daily",
-        "icon":"../src/assets/daily.png"
+        "id": 1,
+        "name": "任务1",
+        "type": "daily",
+        "icon": "../src/assets/daily.png"
     },
     {
-        "id":2,
-        "name":"旅行",
-        "type":"travel",
-        "icon":"../src/assets/travel.png"
+        "id": 2,
+        "name": "任务2",
+        "type": "travel",
+        "icon": "../src/assets/travel.png"
     },
     {
-        "id":4,
-        "name":"运动",
-        "type":"sport",
-        "icon":"../src/assets/sport.png"
+        "id": 4,
+        "name": "任务4",
+        "type": "sport",
+        "icon": "../src/assets/sport.png"
     },
     {
-        "id":5,
-        "name":"商店",
-        "type":"market",
-        "icon":"../src/assets/market.png"
+        "id": 5,
+        "name": "任务5",
+        "type": "market",
+        "icon": "../src/assets/market.png"
     }
 ]

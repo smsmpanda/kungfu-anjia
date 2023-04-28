@@ -11,15 +11,15 @@ import { reactive } from 'vue'
 import layout from '~/components/layout.vue'
 
 export default {
-    components:{
+    components: {
         layout
     },
-    name:'resetpwd',
-    setup(){
+    name: 'resetpwd',
+    setup() {
 
         let data = reactive({
-            module:'重置密码',
-            moduleName:'重置密码....'
+            module: '重置密码',
+            moduleName: '重置密码....'
         })
         return {
             data

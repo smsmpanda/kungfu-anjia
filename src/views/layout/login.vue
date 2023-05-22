@@ -2,11 +2,14 @@
   <div class="common-layout ym-height-fill">
     <el-container class="ym-height-fill">
       <el-header class="login-header">
-        <logo style="width:80px;top:10px" :logoWidth="50" :logoHeight="50" />
+        <div class="login-header-content">
+          <logo style="width:80px;top:10px" :logoWidth="50" :logoHeight="50" />
+        </div>
       </el-header>
       <el-main>
-        <div class="login-box-wrap">
-          <loginwrap loginOption="账号密码登录">
+        <div class="login-wrap login-box-wrap">
+          <!--账号密码登录-->
+          <LoginWrap loginOption="账号密码登录">
             <template #content>
               <div class="login-item">
                 <el-input v-model="data.account" class="login-input w-50 m-2" size="large" placeholder="账号名/邮箱/手机"
@@ -27,30 +30,55 @@
             </template>
             <template #foot>
               未开通小窝坊帐号可通过
-              <a class="ym-login-mehtod-item" href="" @click.prevent="switchOthenLoginMethod">其他方式登录</a>
+              <a class="ym-login-mehtod-item" href="" @click.prevent="switchLoginOption('weChatLogin')">其他方式登录</a>
             </template>
-          </loginwrap>
-          <loginwrap loginOption="微信扫码登录" class="login-wrap-hide" :class="{ 'login-slide-show': data.loginMethod.other }">
-            <template #content>
-              <div class="login-qrcode">
-                <div class="login-qrcode-wrap">
-                  <el-image :src="data.loginEwm" fit="cover" style="width:150px; height:150px" />
+          </LoginWrap>
+          <div class="login-wrap login-wrap-hide" :class="{ 'login-slide-show': !data.loginMethod.accountLogin }">
+            <!--微信扫码登录-->
+            <LoginWrap loginOption="微信扫码登录" v-show="data.loginMethod.weChatLogin">
+              <template #content>
+                <div class="login-qrcode">
+                  <div class="login-qrcode-wrap">
+                    <el-image :src="data.loginEwm" fit="cover" style="width:150px; height:150px" />
+                  </div>
                 </div>
-              </div>
-            </template>
-            <template #foot>
-              <div class="ym-login-methods">
-                <a class="ym-login-mehtod-item no-select" href="" @click.prevent="switchOthenLoginMethod">
-                  <el-icon>
-                    <ArrowLeft />
-                  </el-icon>
-                  账号密码
-                </a>
-                <a class="ym-login-mehtod-item no-select" href="" @click.prevent="switchLmWx">微信</a>
-                <a class="ym-login-mehtod-item no-select" href="" @click.prevent="switchLmPhone">手机号</a>
-              </div>
-            </template>
-          </loginwrap>
+              </template>
+              <template #foot>
+                <div class="ym-login-methods">
+                  <a class="ym-login-mehtod-item no-select" href="" @click.prevent="switchLoginOption('accountLogin')">
+                    <el-icon>
+                      <ArrowLeft />
+                    </el-icon>
+                    账号密码
+                  </a>
+                  <a class="ym-login-mehtod-item" :class="{ 'no-select': !data.loginMethod.weChatLogin }" href=""
+                    @click.prevent="switchLoginOption('weChatLogin')">微信</a>
+                  <a class="ym-login-mehtod-item" :class="{ 'no-select': !data.loginMethod.phoneLogin }" href=""
+                    @click.prevent="switchLoginOption('phoneLogin')">手机号</a>
+                </div>
+              </template>
+            </LoginWrap>
+            <!--手机号码登录-->
+            <LoginWrap loginOption="手机号码登录" v-show="data.loginMethod.phoneLogin">
+              <template #content>
+
+              </template>
+              <template #foot>
+                <div class="ym-login-methods">
+                  <a class="ym-login-mehtod-item no-select" href="" @click.prevent="switchLoginOption('accountLogin')">
+                    <el-icon>
+                      <ArrowLeft />
+                    </el-icon>
+                    账号密码
+                  </a>
+                  <a class="ym-login-mehtod-item" :class="{ 'no-select': !data.loginMethod.weChatLogin }" href=""
+                    @click.prevent="switchLoginOption('weChatLogin')">微信</a>
+                  <a class="ym-login-mehtod-item" :class="{ 'no-select': !data.loginMethod.phoneLogin }" href=""
+                    @click.prevent="switchLoginOption('phoneLogin')">手机号</a>
+                </div>
+              </template>
+            </LoginWrap>
+          </div>
         </div>
       </el-main>
       <el-footer>
@@ -65,15 +93,23 @@
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
 import { Calendar, Search, User, Loading, Key, Eleme, ArrowLeft } from '@element-plus/icons-vue'
-import loginwrap from '~/components/loginwrap.vue'
+import LoginWrap from '~/components/loginwrap.vue'
 import loginEwm from '~/assets/ewm.png'
 import logo from '~/components/logo.vue'
+
+//configuration
+const LoginMethodOption = {
+  WeChatLogin: 'weChatLogin',
+  PhoneLogin: 'phoneLogin',
+  AccountLogin: 'accountLogin'
+}
 
 export default {
   name: 'login',
   components: {
     logo,
-    ArrowLeft
+    ArrowLeft,
+    LoginWrap
   },
   setup() {
     const router = useRouter()
@@ -84,18 +120,29 @@ export default {
       loginBtnIsShowLoading: false,
       loginEwm: loginEwm,
       loginMethod: {
-        other: false
+        weChatLogin: false,
+        phoneLogin: false,
+        accountLogin: true
       }
     })
 
+    //登录
     function login() {
       data.loginBtnIsShowLoading = true;
       data.loginBtnContent = '登录中...';
       router.push('/home');
     }
 
-    function switchOthenLoginMethod() {
-      data.loginMethod.other = !data.loginMethod.other
+    //切换至账号密码登录方式
+    function switchLoginOption(loginOption) {
+      for (const key in data.loginMethod) {
+        if (key === loginOption) {
+          data.loginMethod[loginOption] = !data.loginMethod[loginOption]
+        }
+        else {
+          data.loginMethod[key] = false
+        }
+      }
     }
 
     return {
@@ -111,7 +158,7 @@ export default {
       data,
       //methods
       login,
-      switchOthenLoginMethod
+      switchLoginOption
     }
   }
 };
@@ -127,18 +174,19 @@ export default {
   background-position: center center;
 }
 
-.login-box-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.login-wrap {
   width: 340px;
   height: 415px;
+  position: absolute;
+}
+
+.login-box-wrap {
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background: #FFF;
   overflow: hidden;
 }
-
-
 
 .ym-login-footer {
   text-align: center;
@@ -217,5 +265,11 @@ export default {
   padding: 10px;
   border: 1px solid #f1eeee;
   border-radius: 5px;
+}
+
+.login-header-content {
+  width: var(--ym-min-width);
+  height: 100%;
+  margin: 0 auto;
 }
 </style>

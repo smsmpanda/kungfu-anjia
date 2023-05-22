@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "loginwrap",
+    name: "LoginWrap",
     props: {
         loginOption: String
     },

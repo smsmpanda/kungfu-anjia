@@ -9,9 +9,9 @@ body{
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family:"microsoft yahei"!important;
+  font-family:"PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", sans-serif;
   min-width: 1200px;
-  color: var(--ym-color);
+  background: linear-gradient(180deg, rgba(238,233,233,1) 0%, rgba(236,230,230,1) 36%, rgba(231,226,226,1) 100%);
 }
 
 #app{

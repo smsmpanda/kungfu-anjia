@@ -1,25 +1,25 @@
 [
     {
         "id": 1,
-        "name": "任务1",
+        "name": "内容1",
         "type": "daily",
         "icon": "../src/assets/daily.png"
     },
     {
         "id": 2,
-        "name": "任务2",
+        "name": "内容2",
         "type": "travel",
         "icon": "../src/assets/travel.png"
     },
     {
         "id": 4,
-        "name": "任务4",
+        "name": "内容4",
         "type": "sport",
         "icon": "../src/assets/sport.png"
     },
     {
         "id": 5,
-        "name": "任务5",
+        "name": "内容5",
         "type": "market",
         "icon": "../src/assets/market.png"
     }

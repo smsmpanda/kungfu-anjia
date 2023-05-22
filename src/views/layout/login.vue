@@ -186,6 +186,7 @@ export default {
   transform: translate(-50%, -50%);
   background: #FFF;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 15px;
 }
 
 .ym-login-footer {

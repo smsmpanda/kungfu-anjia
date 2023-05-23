@@ -2,7 +2,7 @@
     <div class="ym-login-wrap">
         <div class="ym-login-nav">
             <div class="ym-login-title">{{ loginOption }}</div>
-            <div class="ym-login-subtitle ">欢迎来到小窝坊</div>
+            <div class="ym-login-subtitle "></div>
         </div>
         <div class="ym-login-contentwarp">
             <slot name="content">

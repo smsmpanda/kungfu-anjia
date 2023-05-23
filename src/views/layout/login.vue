@@ -1,5 +1,5 @@
 <template>
-  <div class="common-layout ym-height-fill">
+  <div class="login-main  common-layout ym-height-fill">
     <el-container class="ym-height-fill">
       <el-header class="login-header">
         <div class="login-header-content">
@@ -30,7 +30,7 @@
               </div>
             </template>
             <template #foot>
-              未开通小窝坊帐号可通过
+              未开通内容中心帐号可通过
               <a class="ym-login-mehtod-item" href="" @click.prevent="switchLoginOption('weChatLogin')">其他方式登录</a>
             </template>
           </LoginWrap>
@@ -138,7 +138,7 @@ export default {
     function switchLoginOption(loginOption) {
       for (const key in data.loginMethod) {
         if (key === loginOption) {
-          data.loginMethod[loginOption] = !data.loginMethod[loginOption]
+          data.loginMethod[loginOption] = true
         }
         else {
           data.loginMethod[key] = false
@@ -171,8 +171,9 @@ export default {
 }
 
 .login-main {
-  background: url(~/assets/login.png) no-repeat;
-  background-position: center center;
+  background: url(~/assets/login-bg.png) no-repeat;
+  background-color: skyblue;
+  background-size: cover;
 }
 
 .login-wrap {

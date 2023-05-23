@@ -11,7 +11,7 @@ body{
   padding: 0;
   font-family:"PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", sans-serif;
   min-width: var(--ym-min-width);
-  background: linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(194,194,199,1) 51%, rgba(211,213,213,1) 100%);
+  background: rgba(246, 246, 246);
 }
 
 #app{

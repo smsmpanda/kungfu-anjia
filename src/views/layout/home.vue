@@ -72,13 +72,7 @@ export default {
 <style scoped>
 .home-main-left {
   width: 140px;
-  background-color: var(--ym-primary);
-  color: var(--ym-global-color);
-}
-
-.ym-main-right {
-  /* color: var(--ym-global-color); */
-  /* background-color: var(--ym-content-background-color); */
+  background-color: #fff;
 }
 
 .ym-main-logo {
@@ -90,9 +84,7 @@ export default {
   width: 100%;
 }
 
-.ym-content {
-  background-color: var(--ym-primary-sub);
-}
+.ym-content {}
 
 .ym-header-col {
   display: flex;
@@ -110,8 +102,6 @@ export default {
 .ym-header {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #2c2a2a;
-  background-color: var(--ym-primary-sub);
 }
 
 .ym-header-content {
@@ -123,19 +113,10 @@ export default {
   text-decoration: none;
   height: 35px;
   line-height: 35px;
-  color: rgba(255, 255, 255, 0.5);
   font-family: 'PingFang SC,DFPKingGothicGB-Medium,sans-serif';
   font-weight: 400;
 }
 
-.ym-menu-active {
-  font-size: 16px;
-  color: #fff;
-}
-
-.ym-menu-active .home-menu-icon>img {
-  filter: opacity(1);
-}
 
 .home-menu-wrap {
   display: flex;
@@ -150,7 +131,6 @@ export default {
 
 .home-menu-item-link:hover .home-menu-icon>img,
 .home-menu-item-link:hover .home-menu-text {
-  color: #fff;
   filter: opacity(1);
 }
 

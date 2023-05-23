@@ -25,7 +25,8 @@
                     data.loginBtnContent }}</el-button>
               </div>
               <div class="login-item">
-                <!-- <router-link to="/resetpwd">找回密码</router-link> | <router-link to="/register">快速注册</router-link> -->
+                <router-link class="login-other-op" to="/resetpwd">找回密码</router-link>
+                <router-link class="login-other-op" to="/register">快速注册</router-link>
               </div>
             </template>
             <template #foot>
@@ -272,5 +273,25 @@ export default {
   width: var(--ym-min-width);
   height: 100%;
   margin: 0 auto;
+}
+
+.login-other-op {
+  font-size: 13px;
+  text-decoration: none;
+  position: relative;
+  padding: 0px 10px;
+  color: #7a7777;
+}
+
+.login-other-op:last-child:before {
+  content: '';
+  height: 13px;
+  width: 1px;
+  border-radius: 10px;
+  display: inline-block;
+  background-color: rgb(238, 238, 238);
+  position: absolute;
+  left: 0px;
+  top: 1px;
 }
 </style>

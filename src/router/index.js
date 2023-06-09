@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import login from '../views/layout/login.vue';
 
 const routes = [
@@ -21,10 +21,8 @@ const routes = [
   // { path: '/:pathMatch(.*)*', component: () => import('../views/notfound.vue') },
 ];
 
-const router = createRouter({
-  history: createWebHistory(),
+export default createRouter({
+  history: createWebHashHistory(),
   routes,
   linkActiveClass: 'ym-menu-active'
 });
-
-export default router;

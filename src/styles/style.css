@@ -20,7 +20,9 @@ a:hover{
   color: var(--ep-color-primary);
 }
 
-.clearfix{
+.clearfix::after{
+  content: '';
+  display: block;
   clear: both;
 }
 

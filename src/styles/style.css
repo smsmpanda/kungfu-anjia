@@ -1,18 +1,37 @@
-*{
+body,html,a,h1,h2,h3,h4,h5,h6,ul,ol,div{
   padding:0;
   margin: 0;
 }
-
-html,
-body{
-  width: 100%;
+body,html{
   height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family:"PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", sans-serif;
-  min-width: var(--ym-min-width);
-  background: rgba(246, 246, 246);
+  width: 100%;
 }
+ul li,ol li,a {
+  list-style: none;
+  text-decoration: none;
+}
+
+
+a{
+  color:#060716
+}
+
+a:hover{
+  color: var(--ep-color-primary);
+}
+
+.clearfix{
+  clear: both;
+}
+
+.leftfix{
+  float: left;
+}
+
+.rightfix{
+  float: left;
+}
+
 
 #app{
   width: 100%;
@@ -28,7 +47,8 @@ body{
   --ym-global-color:#ffffff;
   --ym-color:none;
   --ym-content-background-color:#2e3742;
-  --ym-min-width:1200px
+  --ym-min-width:1000px;
+  --ym-container:1000px
 }
 
 .ym-height-fill{
@@ -39,8 +59,29 @@ body{
   width: var(--ym-w-full);
 }
 
-.ym-container {
-  height: var(--ym-h-fill);
-  background-color: var(--ym-global-color);
+.container {
+  width:var(--ym-container)
+}
+
+.enable-row-flex{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.enable-col-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.ym-nav-active {
+  color: var(--ep-color-primary);
+}
+
+.content-wrap {
+  width:100%;
+  padding:16px 20px;
+  box-sizing:border-box;
+  border-bottom: 1px solid #f0f2f7;
 }
 

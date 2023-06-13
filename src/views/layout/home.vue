@@ -1,175 +1,161 @@
 <template>
-  <div class="common-layout ym-height-fill">
-    <el-container class="ym-height-fill">
-      <el-aside class="home-main-left">
-        <div class="ym-main-logo">
-          <logo class="ym-logo" :logoWidth="50" :logoHeight="50" />
+    <div class="home-container enable-col-flex">
+        <div class="home-header">
+            <div class="home-header-content">
+                <div></div>
+            </div>
         </div>
-        <div class="home-menu-wrap">
-          <div class="home-menu-item" v-for="menu in data.menus" v-bind:key="menu.Id">
-            <router-link class="home-menu-item-link" :to="menu.type">
-              <div class="home-menu-icon">
-                <img :src="menu.icon" />
-              </div>
-              <div class="home-menu-text">{{ menu.name }}</div>
-            </router-link>
-          </div>
+        <div class="home-center enable-row-flex">
+            <div class="home-center-main">
+                <ul class="home-content-nav clearfix" @tab-click="handleClick">
+                    <li v-for="tabKind in data.tabKinds" v-bind:key="tabKind.tabUrl">
+                        <router-link :to="tabKind.tabUrl">{{ tabKind.lable }}</router-link>
+                    </li>
+                </ul>
+                <div class="home-content-nav-detail">
+                    <router-view></router-view>
+                </div>
+            </div>
+            <div class="home-center-aside">
+                <div class="home-personal-center">
+                    <div class="home-idea enable-row-flex">
+                        <div>
+                            <div>f</div>
+                            <div>发视频</div>
+                        </div>
+                        <div>
+                            <div>f</div>
+                            <div>发视频</div>
+                        </div>
+                        <div>
+                            <div>f</div>
+                            <div>发视频</div>
+                        </div>
+                    </div>
+                    <div>
+                        <el-button type="primary" plain>进入创作中心</el-button>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
         </div>
-      </el-aside>
-      <el-container class="ym-main-right">
-        <el-header class="ym-header">
-          <el-row class="ym-header-content" align="middle">
-            <el-col :span="8" :offset="8">
-              <el-input size="large" placeholder="全局搜索" v-model="data.searcContent" :prefix-icon="Search"></el-input>
-            </el-col>
-            <el-col :span="8">
-              <ul class="ym-header-col">
-                <li>
-                  <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
-                </li>
-                <li>
-                  <el-button type="primary" size="large" style="width: 100px">登录</el-button>
-                </li>
-              </ul>
-            </el-col>
-          </el-row>
-        </el-header>
-        <el-main class="ym-content">
-          <router-view></router-view>
-        </el-main>
-      </el-container>
-    </el-container>
-  </div>
+    </div>
 </template>
 
 <script>
-import menus from '~/data.json'
 import logo from '~/components/logo.vue'
 import { Search, UserFilled } from '@element-plus/icons-vue'
-import { reactive } from 'vue'
+import { reactive, computed, watch } from 'vue'
 
 export default {
-  name: 'home',
-  components: {
-    logo,
-  },
-  setup() {
-    let data = reactive({
-      menus,
-      searcContent: '',
-      squareUrl:
-        'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-    })
-    return {
-      Search,
-      UserFilled,
-      data,
-    }
-  },
+    name: 'home',
+    setup() {
+
+        let data = reactive({
+            tabKinds: [
+                { tabUrl: 'follow', lable: '关注' },
+                { tabUrl: 'recommend', lable: '推荐' },
+                { tabUrl: 'hot', lable: '热榜' },
+                { tabUrl: 'video', lable: '视频' }
+            ]
+        })
+
+        //methods
+        function handleClick(tab, event) {
+            console.log(tab, event)
+        }
+
+        //computed
+        const cpuActiveName = computed(() => data.tabKinds.find(t => t.active).name)
+
+        return {
+            Search,
+            UserFilled,
+            handleClick,
+            cpuActiveName,
+            data,
+        }
+    },
 }
 </script>
 
 <style scoped>
-.home-main-left {
-  width: 140px;
-  background-color: #fff;
+body {
+    overflow: auto;
 }
 
-.ym-main-logo {
-  position: relative;
-  height: 50px;
+.home-container {
+    background-color: #f6f6f6;
 }
 
-.ym-logo {
-  width: 100%;
+.home-header {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px hsla(0, 0%, 7%, .1);
 }
 
-.ym-content {}
-
-.ym-header-col {
-  display: flex;
-  justify-content: end;
-  list-style: none;
+.home-header-content {
+    width: var(--ym-min-width);
+    margin: 0 auto;
 }
 
-.ym-header-col li:not(:last-child) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
+.home-center {
+    flex: 1;
+    margin: 10px auto;
+    width: var(--ym-min-width);
 }
 
-.ym-header {
-  display: flex;
-  align-items: center;
+.home-center-main {
+    flex: 1;
+    background-color: #fff;
+    height: 2000px;
 }
 
-.ym-header-content {
-  flex: 1;
+.home-center-aside {
+    width: 300px;
+    margin-left: 20px;
+    background-color: #fff;
 }
 
-.home-menu-item-link {
-  display: flex;
-  text-decoration: none;
-  height: 35px;
-  line-height: 35px;
-  font-family: 'PingFang SC,DFPKingGothicGB-Medium,sans-serif';
-  font-weight: 400;
+.home-personal-center {
+    padding: 20px;
 }
 
-
-.home-menu-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.home-idea {
+    align-items: center;
+    justify-content: space-between;
 }
 
-.home-menu-item {
-  margin: 12px 20px 0 20px;
-}
-
-.home-menu-item-link:hover .home-menu-icon>img,
-.home-menu-item-link:hover .home-menu-text {
-  filter: opacity(1);
-}
-
-.home-menu-icon {
-  padding: 0 12px 0 0;
-  display: flex;
-  align-items: center;
-}
-
-.home-menu-icon img {
-  width: 24px;
-  height: auto;
-  filter: opacity(50%);
-}
-
-@media screen and (max-width: 1280px) {
-  .home-main-left {
-    width: 75px;
-  }
-
-  .home-menu-item-link {
+.home-idea>div {
     display: flex;
     flex-direction: column;
-    font-size: 12px;
-    height: auto;
-    line-height: 1;
-  }
-
-  .home-menu-item {
-    margin: 8px 18px 0;
-  }
-
-  .home-menu-text {
-    line-height: 25px;
-    text-align: center;
-  }
-
-  .home-menu-icon {
-    padding: 0;
-  }
+    justify-content: center;
+    align-items: center;
 }
+
+.home-personal-center>div:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.home-content-nav {
+    border-bottom: 1px solid #f0f2f7;
+    overflow: hidden;
+}
+
+.home-content-nav li {
+    float: left;
+    height: 55px;
+    line-height: 55px;
+    padding-right: 40px;
+}
+
+.home-content-nav li:first-child {
+    padding-left: 20px;
+}
+
+.home-content-nav-detail {}
 </style>

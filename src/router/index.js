@@ -6,12 +6,12 @@ const routes = [
   {
     path: '/home',
     component: () => import('../views/layout/home.vue'),
-    redirect: '/home/daily',
+    redirect: '/home/recommend',
     children: [
-      { path: 'daily', component: () => import('../views/daily/index.vue') },
-      { path: 'travel', component: () => import('../views/travel/index.vue') },
-      { path: 'sport', component: () => import('../views/sport/index.vue') },
-      { path: 'market', component: () => import('../views/market/index.vue') }
+      { path: 'follow', component: () => import('../views/follow/index.vue') },
+      { path: 'recommend', component: () => import('../views/recommend/index.vue') },
+      { path: 'hot', component: () => import('../views/hot/index.vue') },
+      { path: 'video', component: () => import('../views/video/index.vue') }
     ]
   },
   { path: '/resetpwd', component: () => import('../views/layout/resetpwd.vue') },
@@ -24,5 +24,5 @@ const routes = [
 export default createRouter({
   history: createWebHashHistory(),
   routes,
-  linkActiveClass: 'ym-menu-active'
+  linkActiveClass: 'ym-nav-active'
 });

@@ -87,3 +87,8 @@ a:hover{
   border-bottom: 1px solid #f0f2f7;
 }
 
+
+.flex-center-center{
+  align-items: center;
+  justify-content: center;
+}

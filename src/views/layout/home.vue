@@ -73,7 +73,7 @@
                         </ul>
                     </div>
                     <div class="home-enter-creator enable-row-flex flex-center-center">
-                        <!-- <router-link target="_blank" to="/register">进入创作中心</router-link> -->
+                        <!-- <router-link target="_blank" to="/createc/">进入创作中心</router-link> -->
                         <el-button class="go-creator" type="primary" @click="enterCreatCenter" plain>进入创作中心</el-button>
                     </div>
                 </div>

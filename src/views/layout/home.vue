@@ -74,7 +74,7 @@
                     </div>
                     <div class="home-enter-creator enable-row-flex flex-center-center">
                         <!-- <router-link target="_blank" to="/register">进入创作中心</router-link> -->
-                        <el-button @click="enterCreatCenter">进入创作中心 </el-button>
+                        <el-button class="go-creator" type="primary" @click="enterCreatCenter" plain>进入创作中心</el-button>
                     </div>
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default {
 
         function enterCreatCenter() {
             console.log(router)
-            const newUrl = router.resolve('/register')
+            const newUrl = router.resolve('/createc/')
             window.open(newUrl.href, "_brank")
         }
 
@@ -231,11 +231,7 @@ body {
     padding-left: 20px;
 }
 
-.home-enter-creator {
-    height: 35px;
-    line-height: 35px;
-    border: 1px solid rgba(5, 109, 232, 0.5);
-    color: rgb(5, 109, 232);
-    border-radius: 3px;
+.home-enter-creator .go-creator {
+    width: 100%;
 }
 </style>

@@ -2,7 +2,23 @@
     <div class="home-container enable-col-flex">
         <div class="home-header">
             <div class="home-header-content">
-                <div></div>
+                <ul class="header-nav enable-row-flex">
+                    <li>
+                        <a href="#" class="ym-nav-active">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">发现</a>
+                    </li>
+                    <li>
+                        <a href="#">等你来答</a>
+                    </li>
+                    <li>
+                        <div class="header-nav-search" :class="{ 'header-search-expand': data.style.searchFocus }">
+                            <el-input @focus="data.style.searchFocus = true" @blur="data.style.searchFocus = false"
+                                class="w-50 m-2" :suffix-icon="Search" />
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="home-center enable-row-flex">
@@ -101,7 +117,10 @@ export default {
                 { tabUrl: '/', lable: '推荐' },
                 { tabUrl: 'hot', lable: '热榜' },
                 { tabUrl: 'video', lable: '视频' }
-            ]
+            ],
+            style: {
+                searchFocus: false
+            }
         })
 
         //methods
@@ -146,6 +165,7 @@ body {
 .home-header-content {
     width: var(--ym-min-width);
     margin: 0 auto;
+    height: 100%;
 }
 
 .home-center {
@@ -233,5 +253,25 @@ body {
 
 .home-enter-creator .go-creator {
     width: 100%;
+}
+
+.header-nav {
+    height: 100%;
+}
+
+.header-nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.header-nav-search {
+    width: 300px;
+    transition: all .3s ease-in-out;
+}
+
+.header-search-expand {
+    width: 400px
 }
 </style>

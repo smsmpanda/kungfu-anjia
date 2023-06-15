@@ -8,7 +8,6 @@ const routes = [
   { path: '/video', component: () => import('../views/video/index.vue') },
   { path: '/register', component: () => import('../views/layout/register.vue') },
   { path: '/resetpwd', component: () => import('../views/layout/resetpwd.vue') },
-  { path: '/create', component: () => import('../page/createc/App.vue') },
   // { path: '/city/:cityType', component: () => import('../views/city.vue') },
   // { path: '/city', redirect: '/city/beijing' },
   // { path: '/:pathMatch(.*)*', component: () => import('../views/notfound.vue') },

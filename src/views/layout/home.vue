@@ -37,7 +37,7 @@
                     <div>
                         <ul class="home-idea enable-row-flex">
                             <li>
-                                <a>
+                                <a href="#">
                                     <div>
                                         <svg t="1686668901039" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg" p-id="21829" width="25" height="25">
@@ -56,7 +56,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#">
                                     <div>
                                         <svg t="1686668740136" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg" p-id="19578" width="25" height="25">
@@ -74,7 +74,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" @click="writeThings">
                                     <div>
                                         <svg t="1686668664887" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg" p-id="15002" width="25" height="25">
@@ -130,8 +130,13 @@ export default {
 
         function enterCreatCenter() {
             console.log(router)
-            const newUrl = router.resolve('/createc/')
+            const newUrl = router.resolve('/create')
             window.open(newUrl.href, "_brank")
+        }
+
+        //写想法
+        function writeThings() {
+            alert(1)
         }
 
         return {
@@ -140,6 +145,8 @@ export default {
             handleClick,
             enterCreatCenter,
             data,
+            //methods
+            writeThings,
         }
     },
 }
